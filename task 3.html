@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate and Review Bus Route</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .review-container {
+            width: 60%;
+            margin: 20px auto;
+        }
+        .rating {
+            margin-bottom: 10px;
+        }
+        .rating input {
+            margin-right: 5px;
+        }
+        .review-box {
+            margin-bottom: 15px;
+        }
+        .reviews {
+            margin-top: 30px;
+        }
+        .review-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .average-rating {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="review-container">
+    <h2>Rate and Review Bus Route #42</h2>
+    <p>Please rate and share your experience for Bus Route #42.</p>
+    
+    <!-- Rating Section -->
+    <div class="rating">
+        <label for="rating">Rating: </label>
+        <input type="radio" id="star5" name="rating" value="5"><label for="star5">5</label>
+        <input type="radio" id="star4" name="rating" value="4"><label for="star4">4</label>
+        <input type="radio" id="star3" name="rating" value="3"><label for="star3">3</label>
+        <input type="radio" id="star2" name="rating" value="2"><label for="star2">2</label>
+        <input type="radio" id="star1" name="rating" value="1"><label for="star1">1</label>
+    </div>
+
+    <!-- Review Section -->
+    <div class="review-box">
+        <label for="review-text">Your Review:</label>
+        <textarea id="review-text" rows="4" cols="50" placeholder="Write your review here..."></textarea>
+    </div>
+
+    <button onclick="submitReview()">Submit Review</button>
+
+    <!-- Displaying Reviews -->
+    <div class="reviews">
+        <h3>Reviews and Average Rating</h3>
+        <div id="average-rating" class="average-rating">Average Rating: 0.0</div>
+        <div id="reviews-list"></div>
+    </div>
+</div>
+
+<script>
+    let reviews = [];  // Array to store review objects (rating and review text)
+
+    // Function to calculate average rating
+    function calculateAverageRating() {
+        let totalRating = reviews.reduce((sum, review) => sum + review.rating, 4);
+        return (totalRating / reviews.length) || 0;
+    }
+
+    // Function to display the reviews
+    function displayReviews() {
+        const reviewsList = document.getElementById('reviews-list');
+        const averageRating = document.getElementById('average-rating');
+
+        reviewsList.innerHTML = ''; // Clear previous reviews
+        reviews.forEach(review => {
+            const reviewDiv = document.createElement('div');
+            reviewDiv.classList.add('review-item');
+            reviewDiv.innerHTML = `<p>Rating: ${review.rating} stars</p><p>${review.text}</p>`;
+            reviewsList.appendChild(reviewDiv);
+        });
+
+        // Update the average rating
+        averageRating.innerHTML = `Average Rating: ${calculateAverageRating().toFixed(1)}`;
+    }
+
+    // Function to submit the review
+    function submitReview() {
+        const rating = document.querySelector('input[name="rating"]:checked');
+        const reviewText = document.getElementById('review-text').value;
+
+        if (rating && reviewText.trim()) {
+            // Add the review to the array
+            const newReview = {
+                rating: parseInt(rating.value),
+                text: reviewText.trim()
+            };
+            reviews.push(newReview);
+
+            // Reset the form
+            document.querySelector('input[name="rating"]:checked').checked = false;
+            document.getElementById('review-text').value = '';
+
+            // Update the reviews display
+            displayReviews();
+        } else {
+            alert("Please provide both a rating and a review.");
+        }
+    }
+</script>
+
+</body>
+</html>

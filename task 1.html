@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Bus Tour</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photo-sphere-viewer/4.0.1/photo-sphere-viewer.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        #psv-container {
+            width: 80%;
+            height: 500px;
+            border: 2px solid #ccc;
+        }
+        .description {
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Virtual Bus Tour</h1>
+    <p>Explore the interior of our buses before booking your ride!</p>
+</header>
+
+<div class="container">
+    <div id="psv-container"></div>
+</div>
+
+<div class="description">
+    <p>Use your mouse or touch to explore the bus interior. Rotate, zoom in and out to get a closer look at the seating arrangements.</p>
+</div>
+
+<!-- Include the Photo Sphere Viewer JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photo-sphere-viewer/4.0.1/photo-sphere-viewer.min.js"></script>
+
+<script>
+    // Initialize the 360-degree image viewer (Photo Sphere Viewer)
+    const viewer = new PhotoSphereViewer({
+        panorama: 'https://your-360-image-url.com/bus-interior.jpg', // URL to your 360-degree image
+        container: document.getElementById('psv-container'),
+        navbar: true,
+        caption: 'Virtual Tour of Bus Interior'
+    });
+</script>
+
+</body>
+</html>

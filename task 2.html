@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Travel Stories and Community</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Assuming you have a separate CSS file for styling -->
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Bus Travel Community</h1>
+        <nav>
+            <ul>
+                <li><a href="#stories">Travel Stories</a></li>
+                <li><a href="#tips">Travel Tips</a></li>
+                <li><a href="#photos">Photo Gallery</a></li>
+                <li><a href="#forum">Community Forum</a></li>
+                <li><a href="#social">Social Media</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Travel Stories Section -->
+        <section id="stories">
+            <h2>Share Your Travel Stories</h2>
+            <p>Tell us about your unforgettable bus journeys and experiences!</p>
+            <form action="submit_story.php" method="POST">
+                <textarea name="story" placeholder="Write your story here..." rows="5" required></textarea><br>
+                <input type="text" name="username" placeholder="Your Name" required><br>
+                <button type="submit">Submit Story</button>
+            </form>
+            <div class="stories-list">
+                <h3>Recent Stories</h3>
+                <ul>
+                    <!-- Example of a posted story -->
+                    <li>
+                        <strong>John Doe:</strong> "My adventure from New York to Miami was unforgettable. The bus ride was smooth, and I met some amazing people along the way!"
+                    </li>
+                    <!-- More stories will go here -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Travel Tips Section -->
+        <section id="tips">
+            <h2>Travel Tips</h2>
+            <p>Helpful tips for making your bus journey more comfortable and enjoyable.</p>
+            <form action="submit_tip.php" method="POST">
+                <textarea name="tip" placeholder="Share your travel tip..." rows="3" required></textarea><br>
+                <input type="text" name="username" placeholder="Your Name" required><br>
+                <button type="submit">Submit Tip</button>
+            </form>
+            <div class="tips-list">
+                <h3>Recent Tips</h3>
+                <ul>
+                    <!-- Example of a travel tip -->
+                    <li>
+                        <strong>Jane Smith:</strong> "Always bring snacks and water! Long bus rides can be dehydrating and boring."
+                    </li>
+                    <!-- More tips will go here -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section id="photos">
+            <h2>Share Your Bus Journey Photos</h2>
+            <p>Upload your favorite pictures from your bus trips!</p>
+            <form action="upload_photo.php" method="POST" enctype="multipart/form-data">
+                <input type="file" name="photo" accept="image/*" required><br>
+                <input type="text" name="description" placeholder="Photo Description" required><br>
+                <button type="submit">Upload Photo</button>
+            </form>
+            <div class="photo-gallery">
+                <h3>Recent Photos</h3>
+                <div class="photo">
+                    <img src="photo1.jpg" alt="Bus journey view">
+                    <p>Sunset during my trip through the mountains.</p>
+                </div>
+                <div class="photo">
+                    <img src="photo2.jpg" alt="Inside the bus">
+                    <p>Comfortable seats on my long-distance bus ride.</p>
+                </div>
+                <!-- More photos will go here -->
+            </div>
+        </section>
+
+        <!-- Community Forum Section -->
+        <section id="forum">
+            <h2>Community Forum</h2>
+            <p>Join discussions and share your experiences with fellow travelers!</p>
+            <div class="forum-posts">
+                <h3>Latest Discussions</h3>
+                <ul>
+                    <li><strong>Is it better to take a bus or train?</strong> - <a href="forum_post.html">Join Discussion</a></li>
+                    <li><strong>Tips for long bus rides with kids</strong> - <a href="forum_post.html">Join Discussion</a></li>
+                    <!-- More forum posts will go here -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Social Media Integration Section -->
+        <section id="social">
+            <h2>Connect with Us on Social Media</h2>
+            <p>Follow us on our social media channels for updates and community events!</p>
+            <ul class="social-media">
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Bus Travel Community. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
